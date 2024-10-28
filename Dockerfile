@@ -1,4 +1,4 @@
-# Use an official Node.js image as a base
+# Use an official Node.js image as a base for building the app
 FROM node:18 AS build
 
 # Set the working directory
@@ -13,17 +13,17 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Build the application
+# Build the React application
 RUN npm run build
 
-# Use a lightweight web server to serve the React app
+# Use a lightweight NGINX image to serve the built app
 FROM nginx:alpine
 
 # Copy the build output to the NGINX html directory
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose the port the app will run on
-EXPOSE 3000
+# Expose port 80 to serve the app
+EXPOSE 80
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
