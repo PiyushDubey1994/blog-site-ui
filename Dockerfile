@@ -25,5 +25,5 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Expose the port the app will run on
 EXPOSE 3000
 
-# Command to run your app
-CMD ["npm", "start"]
+# Start NGINX
+CMD ["nginx", "-g", "daemon off;"]
