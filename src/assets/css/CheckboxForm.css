@@ -1,0 +1,11 @@
+.checkbox-form .row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.checkbox-form .col {
+    display: flex;
+    align-items: center;
+   /* margin-right: 5px;  Add spacing between checkboxes */
+}

@@ -1,0 +1,67 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s alternate-reverse;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* 
+.fixed-card {
+    width: 600px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fixed-card .card-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Ensure content scrolls if it overflows 
+}
+
+.fixed-card .card-action {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.fixed-card .card-title {
+    white-space: nowrap; /* Prevents the text from wrapping to a new line 
+    overflow: hidden; /* Hides the overflowed text 
+    text-overflow: ellipsis; /* Adds the ellipsis (...) 
+    max-width: 200px; /* Adjust based on the card width 
+    display: inline-block;
+} */
+
+
+.fixed-card {
+    width: 750px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+}
+
+.fixed-card .card-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Allows scrolling for long content */
+}
+
+.fixed-card .card-action {
+    display: flex;
+    justify-content: space-between;
+}
