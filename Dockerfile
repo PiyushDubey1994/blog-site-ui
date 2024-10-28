@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose the port the app will run on
-EXPOSE 5173
+EXPOSE 3000
 
-# Start NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# Command to run your app
+CMD ["npm", "start"]
