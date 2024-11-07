@@ -14,11 +14,9 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 RUN npm i
-RUN npm run build
-
 # Build the React application
 RUN npm run build
-
+RUN  npm  run dev
 # Use a lightweight NGINX image to serve the built app
 FROM nginx:alpine
 
