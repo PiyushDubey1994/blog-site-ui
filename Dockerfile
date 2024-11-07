@@ -10,26 +10,61 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-
 # Copy the rest of the application code
 COPY . .
-RUN npm i
-RUN npm install -g npx
+
 # Build the React application
 RUN npm run build
+
 # Use a lightweight NGINX image to serve the built app
 FROM nginx:alpine
-RUN npm install -g serve
+
 # Copy the build output to the NGINX html directory
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 
 # Expose port 80 to serve the app
-EXPOSE 3000
+EXPOSE 80
 
-# Start NGINX
-COPY nginx.conf /etc/nginx/nginx.conf
-CMD ["/usr/local/bin/npx", "serve", "-s", "build", "-l", "3000"]
+# Start NGINX (default CMD in the nginx:alpine image will be used)
 
+
+
+
+
+
+
+## Use an official Node.js image as a base for building the app
+#FROM node:18 AS build
+#
+## Set the working directory
+#WORKDIR /app
+#
+## Copy package.json and package-lock.json
+#COPY package*.json ./
+#
+## Install dependencies
+#RUN npm install
+#
+#
+## Copy the rest of the application code
+#COPY . .
+#RUN npm i
+#RUN npm install -g npx
+## Build the React application
+#RUN npm run build
+## Use a lightweight NGINX image to serve the built app
+#FROM nginx:alpine
+#RUN npm install -g serve
+## Copy the build output to the NGINX html directory
+#COPY --from=build /app/dist /usr/share/nginx/html
+#
+## Expose port 80 to serve the app
+#EXPOSE 80
+#
+## Start NGINX
+#COPY nginx.conf /etc/nginx/nginx.conf
+#CMD ["/usr/local/bin/npx", "serve", "-s", "build", "-l", "3000"]
+#
 
 
 

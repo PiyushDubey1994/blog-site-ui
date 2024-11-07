@@ -16,7 +16,7 @@ spec:
         - name: blog-site-ui
           image: piyushdubey1994/blog-site-ui:tagversion
           ports:
-            - containerPort: 3000
+            - containerPort: 80
       restartPolicy: Always
 ---
 apiVersion: v1
@@ -29,5 +29,5 @@ spec:
     app: blog-site-ui
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 80
+      targetPort: 80
