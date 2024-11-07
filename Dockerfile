@@ -18,6 +18,8 @@ RUN npm run build
 
 # Use a lightweight NGINX image to serve the built app
 FROM nginx:alpine
+# Copy the NGINX configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy the build output to the NGINX html directory
 COPY --from=build /app/dist /usr/share/nginx/html
