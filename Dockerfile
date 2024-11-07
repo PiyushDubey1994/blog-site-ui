@@ -29,8 +29,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 3000
 
 # Start NGINX
-CMD ["npm", "start"]
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npx", "serve", "-s", "build", "-l", "3000"]
 
 
 
