@@ -14,11 +14,12 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 RUN npm i
+RUN npm install -g npx
 # Build the React application
 RUN npm run build
 # Use a lightweight NGINX image to serve the built app
 FROM nginx:alpine
-
+RUN npm install -g serve
 # Copy the build output to the NGINX html directory
 COPY --from=build /app/dist /usr/share/nginx/html
 
@@ -27,7 +28,8 @@ EXPOSE 3000
 
 # Start NGINX
 COPY nginx.conf /etc/nginx/nginx.conf
-CMD ["npx", "serve", "-s", "build", "-l", "3000"]
+CMD ["/usr/local/bin/npx", "serve", "-s", "build", "-l", "3000"]
+
 
 
 
