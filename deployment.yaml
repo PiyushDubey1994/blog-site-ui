@@ -42,19 +42,19 @@ spec:
 #  loadBalancerIP: <YOUR_STATIC_IP>  # Optional: Assign a static IP if needed
 
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: blog-site-ui-ingress
-spec:
-  rules:
-#    - host:
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: blog-site-ui-service
-                port:
-                  number: 80
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: blog-site-ui-ingress
+#spec:
+#  rules:
+##    - host:
+#      http:
+#        paths:
+#          - path: /
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: blog-site-ui-service
+#                port:
+#                  number: 80
