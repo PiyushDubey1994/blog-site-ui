@@ -17,9 +17,6 @@ spec:
           image: piyushdubey1994/blog-site-ui:tagversion
           ports:
             - containerPort: 80
-          volumeMounts:
-            - name: blog-site-ui-volume
-              mountPath: /usr/share/nginx/html
       restartPolicy: Always
 ---
 apiVersion: v1
