@@ -20,10 +20,6 @@ spec:
           volumeMounts:
             - name: blog-site-ui-volume
               mountPath: /usr/share/nginx/html
-      volumes:
-        - name: blog-site-ui-volume
-          configMap:
-            name: blog-site-ui-configmap
       restartPolicy: Always
 ---
 apiVersion: v1
