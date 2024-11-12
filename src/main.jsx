@@ -2,8 +2,8 @@ import React, {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize.min.js';
+// import 'materialize-css/dist/css/materialize.min.css';
+// import 'materialize-css/dist/js/materialize.min.js';
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import './assets/css/toast-notify.css'
