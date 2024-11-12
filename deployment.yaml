@@ -20,7 +20,7 @@ spec:
           ports:
             - containerPort: 8082
           volumeMounts:
-            - name: react-app-volume
+            - name: blogsite-blog-service-volume
               mountPath: /usr/share/nginx/html
 
 ---
