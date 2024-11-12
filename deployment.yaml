@@ -1,38 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blogsite-blog-service
-  labels:
-    app: blogsite-blog-service
+  name: blog-site-ui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: blogsite-blog-service
+      app: blog-site-ui
   template:
     metadata:
       labels:
-        app: blogsite-blog-service
+        app: blog-site-ui
     spec:
       containers:
-        - name: blogsite-blog-service
-          image: piyushdubey1994/blogsite-blog-service:tagversion
+        - name: blog-site-ui
+          image: piyushdubey1994/blog-site-ui:tagversion
           ports:
-            - containerPort: 8082
+            - containerPort: 80
           volumeMounts:
-            - name: blogsite-blog-service-volume
+            - name: blog-site-ui-volume
               mountPath: /usr/share/nginx/html
-
+      volumes:
+        - name: blog-site-ui-volume
+          configMap:
+            name: blog-site-ui-configmap
+      restartPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: blogsite-blog-service
+  name: blog-site-ui-service
 spec:
   type: LoadBalancer
   selector:
-    app: blogsite-blog-service
+    app: blog-site-ui
   ports:
     - protocol: TCP
-      port: 83
-      targetPort: 8083
+      port: 80
+      targetPort: 80
