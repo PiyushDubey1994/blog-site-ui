@@ -93,7 +93,7 @@ const PostBlog = () => {
         if (validateForm()) {
             try {
                 console.log(formValues)
-                const response = await axios.post('http://34.70.118.87:80/api/v1.0/blogsite/blogs/add', formValues, { headers: {
+                const response = await axios.post('http://34.70.118.87:80/api/v1.0/user/blogs/add', formValues, { headers: {
                     Authorization: `Bearer ${authData.token}`, // Pass token in the Authorization header
                     'Content-Type': 'application/json', 
                   },}
