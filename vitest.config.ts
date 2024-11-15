@@ -1,8 +1,16 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  test: {
-    globals: true,
-    environment: 'jsdom', // or 'node' if you’re running backend tests
+  plugins: [react()],
+  optimizeDeps: {
+    include: ['@mui/material', '@emotion/react', '@emotion/styled'],
+  },
+  build: {
+    rollupOptions: {
+      input: 'index.html',
+    },
+    outDir: 'dist',
+    emptyOutDir: true,
   },
 });

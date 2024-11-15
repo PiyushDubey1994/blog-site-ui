@@ -28,6 +28,8 @@ COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
 
 # Start NGINX (default CMD in the nginx:alpine image will be used)
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]
 
 
 
